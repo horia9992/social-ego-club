@@ -22,7 +22,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:radial-gradient(ellipse at 50% 0%,#4a1010 0%,#2e0808 45%,#1c0505 100%) fixed;color:var(--cream);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;line-height:1.5}
+body{background:#2e0808;color:var(--cream);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;line-height:1.5}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
@@ -42,9 +42,9 @@ section{padding:110px 0}
 .frame{outline:1px solid var(--line);outline-offset:6px}
 
 /* animated sky (fixed layer, works on mobile too) */
-.sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#4a1010 0%,#2e0808 45%,#1c0505 100%)}
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#4a1010 0%,#2e0808 45%,#1c0505 100%);transform:translateZ(0);contain:strict}
 .sky canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
-.sky i{position:absolute;width:min(70vmax,900px);height:min(70vmax,900px);border-radius:50%;will-change:transform;opacity:.6}
+.sky i{position:absolute;width:min(70vmax,900px);height:min(70vmax,900px);border-radius:50%;opacity:.6}
 .sky i:nth-child(1){background:radial-gradient(circle,rgba(160,40,40,.45),transparent 65%);top:-25%;left:-20%;animation:sk1 30s ease-in-out infinite alternate}
 .sky i:nth-child(2){background:radial-gradient(circle,rgba(201,164,104,.16),transparent 65%);top:20%;right:-25%;animation:sk2 36s ease-in-out infinite alternate}
 .sky i:nth-child(3){background:radial-gradient(circle,rgba(120,20,40,.4),transparent 65%);bottom:-30%;left:10%;animation:sk3 42s ease-in-out infinite alternate}
@@ -353,7 +353,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
   let lastFrame = 0;
   function draw(ms){
-    if (ms - lastFrame < 33) { requestAnimationFrame(draw); return; }
+    if (ms - lastFrame < 42) { requestAnimationFrame(draw); return; }
     lastFrame = ms;
     const t = ms / 1000;
     x.clearRect(0, 0, W, H);
