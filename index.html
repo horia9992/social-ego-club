@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social EGO Club · Marketing clasic + video cu AI</title>
+<meta name="description" content="Social EGO Club: producție video de cinema, strategie virală, social media și reclame video făcute cu AI. Un singur club, toate armele.">
+<meta property="og:title" content="Social EGO Club · Outrun your competition">
+<meta property="og:description" content="Marketing clasic și reclame video cu AI, pentru brandurile care nu mai vor să aleagă.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232e0808'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' fill='%23c9a468'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Playfair';src:url('assets/playfair.ttf');font-weight:400 900;font-display:swap}
+@font-face{font-family:'Playfair';src:url('assets/playfair-italic.ttf');font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('assets/montserrat.ttf');font-weight:100 900;font-display:swap}
+@font-face{font-family:'GreatVibes';src:url('assets/greatvibes.ttf');font-display:swap}
+
+:root{
+  --bg:#2e0808; --panel:rgba(90,20,20,.45); --line:rgba(201,164,104,.45); --line-soft:rgba(201,164,104,.22);
+  --cream:#f3e6d3; --gold:#c9a468; --muted:rgba(243,230,211,.72);
+  --serif:'Playfair',Georgia,serif; --sans:'Montserrat',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg) url('assets/bg.jpg') center top/cover fixed;color:var(--cream);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.label{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08}
+h2{font-size:52px;margin:14px 0 18px;font-style:italic}
+h2 em,h1 em{font-style:italic;color:var(--gold)}
+section{padding:110px 0}
+.center{text-align:center}
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:720px}
+.center .lead{margin:0 auto}
+.btn{display:inline-block;padding:16px 34px;border:1px solid var(--gold);color:var(--cream);letter-spacing:.3em;font-size:12px;text-transform:uppercase;font-weight:500;transition:background .2s,color .2s}
+.btn:hover{background:rgba(201,164,104,.15)}
+.btn.solid{background:var(--gold);color:#2e0808}
+.btn.solid:hover{background:#d9b77c}
+.star{color:var(--gold);font-size:14px;letter-spacing:.3em}
+.frame{outline:1px solid var(--line);outline-offset:6px}
+
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:26px 48px;position:relative;z-index:5}
+.brand{font-family:var(--serif);font-size:22px;letter-spacing:.14em;color:var(--cream);white-space:nowrap}
+.brand .script{font-family:'GreatVibes';font-size:26px;letter-spacing:0;margin-left:6px;text-transform:none}
+nav ul{display:flex;gap:34px;list-style:none;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+nav ul a:hover{color:var(--gold)}
+nav .btn{padding:12px 24px}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--cream);width:44px;height:40px;font-size:18px;cursor:pointer}
+
+/* hero */
+.hero{padding:70px 0 100px}
+.hero .wrap{max-width:1000px}
+.hero h1{font-size:84px;letter-spacing:.02em;margin:18px 0 20px}
+.hero .ctas{display:flex;gap:16px;margin-top:34px;justify-content:center;flex-wrap:wrap}
+.video{position:relative;aspect-ratio:16/9;margin-top:60px;border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:18px;background:#1a0404;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.video video{width:100%;height:100%;object-fit:cover;display:block}
+.video .ph{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 60%,rgba(120,30,30,.55),rgba(26,4,4,.9) 70%)}
+.video .ph div{text-align:center}
+.video .play{width:92px;height:92px;margin:0 auto 22px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;background:rgba(46,8,8,.45)}
+.video .play::after{content:"";border-left:22px solid var(--cream);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
+.video .ph b{display:block;font-family:var(--serif);font-size:24px;font-weight:400;color:var(--cream);margin-top:6px}
+.video .ph span{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+
+/* logos */
+.logos{padding:70px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.logos h2{font-size:40px}
+.logos .row{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:36px}
+.logos .row div{height:92px;border:1px solid var(--line);background:var(--panel);display:grid;place-items:center;padding:18px}
+.logos img{max-height:46px;max-width:140px;object-fit:contain}
+
+/* services */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:50px;text-align:left}
+.card{border:1px solid var(--line);background:var(--panel);padding:44px 40px}
+.card h3{font-size:34px;margin:10px 0 18px}
+.card ul{list-style:none;margin-top:20px;font-size:15px;line-height:2.1;color:var(--muted)}
+.card ul li::before{content:"✦ ";color:var(--gold);font-size:10px;margin-right:8px}
+.card.ai{background:linear-gradient(160deg,rgba(201,164,104,.16),rgba(90,20,20,.5))}
+.six{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px;text-align:left}
+.six div{border:1px solid var(--line);padding:30px 28px;background:var(--panel)}
+.six h3{font-size:22px;margin-bottom:10px}
+.six p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* projects */
+.proj-head{display:flex;align-items:end;justify-content:space-between;margin-top:60px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.proj-head h3{font-size:30px}
+.proj-head span{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.grid.v{grid-template-columns:repeat(5,1fr)}
+.thumb{position:relative;aspect-ratio:16/10;background:#1a0404 center/cover;border:1px solid var(--line);overflow:hidden;cursor:pointer}
+.grid.v .thumb{aspect-ratio:9/14}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(20,4,4,.9));pointer-events:none}
+.thumb span{position:absolute;left:14px;bottom:12px;z-index:1;font-size:12px;letter-spacing:.08em;color:var(--cream)}
+.thumb i{position:absolute;right:12px;top:12px;z-index:1;font-style:normal;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);padding:4px 7px;background:rgba(46,8,8,.6)}
+.thumb.empty{border-style:dashed;border-color:var(--line-soft);display:grid;place-items:center;cursor:default}
+.thumb.empty::after{display:none}
+.thumb.empty em{font-style:normal;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--line);text-align:center;padding:0 12px}
+.thumb.empty em::before{content:"✦";display:block;font-size:18px;margin-bottom:10px;color:var(--line)}
+.thumb .pl{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border:1px solid var(--gold);border-radius:50%;background:rgba(46,8,8,.5);z-index:1}
+.thumb .pl::after{content:"";position:absolute;left:21px;top:16px;border-left:14px solid var(--cream);border-top:10px solid transparent;border-bottom:10px solid transparent}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.tier{border:1px solid var(--line);background:var(--panel);padding:44px 34px;text-align:center}
+.tier.pop{border-color:var(--gold);transform:scale(1.04);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.tier .label{display:block;margin-bottom:12px}
+.tier .price{font-family:var(--serif);font-size:48px;color:var(--gold)}
+.tier .price small{font-family:var(--sans);font-size:12px;color:var(--muted);display:block;margin-top:2px}
+.tier ul{list-style:none;margin:26px 0;font-size:14px;line-height:2.2;color:var(--muted)}
+.tier .addon{margin-top:20px;border-top:1px dashed var(--line);padding-top:18px;font-size:13px}
+.tier .addon b{display:block;font-family:var(--serif);font-size:22px;color:var(--gold);font-weight:400;margin:6px 0 4px}
+.note{font-size:12px;color:var(--muted);text-align:center;margin-top:34px;letter-spacing:.04em;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* cta + footer */
+.cta h2{font-size:84px;letter-spacing:.06em;font-style:normal}
+.cta p{color:var(--muted);margin:18px 0 36px;font-size:17px}
+.contact{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);text-align:center;line-height:2.2}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(20,4,4,.94);display:none;place-items:center;z-index:50;padding:24px}
+.lb.on{display:grid}
+.lb video{max-width:min(92vw,1100px);max-height:88vh;border:1px solid var(--gold);outline:1px solid var(--line);outline-offset:10px;background:#000}
+.lb .x{position:absolute;top:22px;right:28px;color:var(--cream);font-size:28px;cursor:pointer;border:1px solid var(--line);width:44px;height:44px;display:grid;place-items:center}
+
+@media (max-width:980px){
+  .wrap{padding:0 20px}
+  nav{padding:18px 20px}
+  nav ul{display:none}
+  nav ul.open{display:flex;position:absolute;left:0;right:0;top:100%;background:#2e0808;flex-direction:column;gap:0;border-bottom:1px solid var(--line)}
+  nav ul.open li{padding:16px 20px;border-top:1px solid var(--line-soft)}
+  nav .btn{display:none}
+  .burger{display:block}
+  section{padding:70px 0}
+  h2{font-size:36px}
+  .hero{padding:40px 0 70px}
+  .hero h1{font-size:44px}
+  .video{outline-offset:10px;margin-top:40px}
+  .logos .row{grid-template-columns:repeat(2,1fr)}
+  .two,.six,.tiers{grid-template-columns:1fr}
+  .tier.pop{transform:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .grid.v{grid-template-columns:repeat(2,1fr)}
+  .proj-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .cta h2{font-size:44px}
+  .card{padding:30px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#top">SOCIAL EGO<span class="script">Club</span></a>
+  <ul id="menu">
+    <li><a href="#servicii">Servicii</a></li>
+    <li><a href="#proiecte">Proiecte</a></li>
+    <li><a href="#ai">AI Studio</a></li>
+    <li><a href="#preturi">Prețuri</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="btn" href="#contact">Hai să vorbim</a>
+  <button class="burger" aria-label="Meniu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap center">
+    <div class="star">✦ &nbsp; Private Club &nbsp; ✦</div>
+    <h1>Dincolo de o agenție. <em>Un club.</em></h1>
+    <p class="lead">Primul ecosistem privat de branduri din România, acum și cu reclame video făcute cu AI.</p>
+    <div class="ctas"><a class="btn solid" href="#contact">Hai să vorbim</a><a class="btn" href="#proiecte">Vezi proiectele</a></div>
+
+    <!-- VIDEO HERO: când există clipul, înlocuiește blocul .ph cu:
+         <video src="media/intro.mp4" poster="media/intro.jpg" controls playsinline></video> -->
+    <div class="video" id="hero-video">
+      <div class="ph"><div><div class="play"></div><span>Video · 30s</span><b>Povestea Social EGO Club</b></div></div>
+    </div>
+  </div>
+</header>
+
+<section class="logos">
+  <div class="wrap center">
+    <div class="label">Trusted by</div>
+    <h2>Nume pe care le știi deja.</h2>
+    <div class="row">
+      <div><img src="assets/logo-globalrecords.png" alt="Global Records"></div>
+      <div><img src="assets/logo-beachplease.png" alt="Beach, Please!"></div>
+      <div><img src="assets/logo-nuba.png" alt="Nuba"></div>
+      <div><img src="assets/logo-nibiru.png" alt="Nibiru"></div>
+      <div><img src="assets/logo-fry.png" alt="FRY."></div>
+      <div><img src="assets/logo-selfy.png" alt="Selfy Media Network"></div>
+      <div><img src="assets/logo-hiro.png" alt="hiro"></div>
+      <div><img src="assets/logo-goldclinic.png" alt="Goldclinic"></div>
+      <div><img src="assets/logo-anadolu.png" alt="Anadolu Medical Center"></div>
+      <div><img src="assets/logo-presto.png" alt="Presto Pizza"></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicii">
+  <div class="wrap center">
+    <div class="label">Ce facem</div>
+    <h2>Marketing clasic. Video cu AI. <em>Un singur loc.</em></h2>
+    <p class="lead">Nu alegi între filmare și AI. Alegi ce funcționează pentru brandul tău, iar noi le combinăm.</p>
+    <div class="two">
+      <div class="card frame">
+        <div class="label">Clasic</div>
+        <h3>Producție &amp; strategie</h3>
+        <p class="lead" style="font-size:15px">Conținut de cinema construit pentru feed, campanii virale gândite, nu nimerite.</p>
+        <ul><li>Producție video high-end</li><li>Strategie de campanii virale</li><li>Social media management</li><li>Branding &amp; identitate</li><li>Influenceri &amp; activări</li><li>Paid ads &amp; PR</li></ul>
+      </div>
+      <div class="card ai frame" id="ai">
+        <div class="label">AI Studio</div>
+        <h3>Reclame video cu AI</h3>
+        <p class="lead" style="font-size:15px">Zeci de variante, personaje, voci și scene. În zile, nu în luni.</p>
+        <ul><li>Reclame video generate cu AI</li><li>Variante A/B pentru Meta &amp; TikTok</li><li>Avatare și personaje recurente</li><li>Voce AI, dubbing, subtitrări</li><li>Produse în orice scenă, fără filmare</li><li>Brand films hibride (filmare + AI)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proiecte" style="padding-top:0">
+  <div class="wrap">
+    <div class="center"><div class="label">Proiecte</div><h2>Ce am făcut.</h2></div>
+
+    <div class="proj-head"><h3>Producție video &amp; campanii</h3><span>Social EGO Club</span></div>
+    <div class="grid" id="grid-clasic"></div>
+
+    <div class="proj-head"><h3>Reclame video cu AI</h3><span>AI Studio</span></div>
+    <div class="grid v" id="grid-ai"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap center">
+    <div class="label">De ce lucrăm împreună</div>
+    <h2>Niciun brief nu e imposibil.</h2>
+    <div class="six">
+      <div><h3>Viteză</h3><p>De la concept la cameră în zile, nu în trimestre.</p></div>
+      <div><h3>Strategie întâi</h3><p>Fiecare video există cu un motiv.</p></div>
+      <div><h3>Calitate de cinema</h3><p>Craft premium, la ritmul feed-ului.</p></div>
+      <div><h3>Confidențialitate 100%</h3><p>Ce se întâmplă în Club rămâne în Club.</p></div>
+      <div><h3>Fluență culturală</h3><p>Vorbim nativ internetul românesc.</p></div>
+      <div><h3>Idei prea nebune</h3><p>Până când le facem.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="preturi" style="padding-top:0">
+  <div class="wrap">
+    <div class="center"><div class="label">Membership</div><h2>Alege-ți nivelul.</h2></div>
+    <div class="tiers">
+      <div class="tier frame"><span class="label">Essential Signature</span><div class="price">€1.500<small>/ lună</small></div>
+        <ul><li>12 videoclipuri pe lună</li><li>2 zile de filmare</li><li>Editare &amp; post completă</li><li>Optimizare pe platforme</li></ul>
+        <div class="addon">+ Add-on AI<b>+ €400</b>8 reclame video AI / lună</div></div>
+      <div class="tier pop frame"><span class="label">✦ Cel mai popular · Expansion Layer</span><div class="price">€2.500<small>/ lună</small></div>
+        <ul><li>30 videoclipuri pe lună</li><li>4 zile de filmare</li><li>Account management complet</li><li>Analytics &amp; raportare lunară</li></ul>
+        <div class="addon">+ Add-on AI<b>+ €800</b>18 reclame video AI + variante A/B</div></div>
+      <div class="tier frame"><span class="label">Elite Scale</span><div class="price">€3.000<small>/ lună</small></div>
+        <ul><li>30 clipuri + 4 brand films</li><li>6–7 zile de filmare</li><li>Sesiuni de strategie săptămânale</li><li>Management premium</li></ul>
+        <div class="addon">+ Add-on AI<b>+ €1.200</b>30 reclame AI + 1 brand film AI</div></div>
+    </div>
+    <p class="note">Abonamentele la aplicațiile de AI (generare video, voce, imagine) se facturează separat, la cost, în funcție de volumul de generări. Estimare: €100–300 / lună.</p>
+  </div>
+</section>
+
+<section class="cta center" id="contact">
+  <div class="wrap">
+    <div class="star">✦</div>
+    <p style="font-family:var(--serif);font-size:26px;color:var(--cream);margin-bottom:10px">Ești pregătit să</p>
+    <h2>OUTRUN YOUR<br>COMPETITION?</h2>
+    <p>Brandurile care se mișcă azi sunt cele despre care se vorbește mâine.</p>
+    <!-- CONTACT: completează linkurile de mai jos (număr WhatsApp fără + și spații, adresă de email) -->
+    <div class="contact">
+      <a class="btn solid" href="https://wa.me/40000000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn" href="mailto:contact@socialegoclub.ro">Email</a>
+    </div>
+  </div>
+</section>
+<footer>Social EGO Club · Est 2026 · București<br>Marketing clasic &amp; reclame video cu AI</footer>
+
+<div class="lb" id="lb" onclick="closeLb()"><div class="x">×</div><video id="lbv" controls playsinline></video></div>
+
+<script>
+/* ===== PROIECTE =====
+   Pentru fiecare clip: { client, tag, video: 'media/fisier.mp4', poster: 'media/fisier.jpg' }
+   Un element fără "video" apare ca loc gol („Video în curând”). Numărul de elemente = numărul de carduri. */
+const CLASIC = [
+  { client: '', tag: 'Campanie' },
+  { client: '', tag: 'Brand film' },
+  { client: '', tag: 'Social' },
+  { client: '', tag: 'Influenceri' },
+];
+const AI = [
+  { client: '', tag: 'AI' },
+  { client: '', tag: 'AI' },
+  { client: '', tag: 'AI' },
+  { client: '', tag: 'AI' },
+  { client: '', tag: 'AI' },
+];
+function render(id, items){
+  const g = document.getElementById(id);
+  g.innerHTML = items.map(it => it.video
+    ? `<div class="thumb" style="background-image:url('${it.poster||''}')" data-v="${it.video}"><i>${it.tag}</i><div class="pl"></div><span>${it.client}</span></div>`
+    : `<div class="thumb empty"><em>Video<br>în curând</em></div>`).join('');
+  g.querySelectorAll('.thumb[data-v]').forEach(t => t.addEventListener('click', () => openLb(t.dataset.v)));
+}
+render('grid-clasic', CLASIC); render('grid-ai', AI);
+const lb = document.getElementById('lb'), lbv = document.getElementById('lbv');
+function openLb(src){ lbv.src = src; lb.classList.add('on'); lbv.play().catch(()=>{}); }
+function closeLb(){ lb.classList.remove('on'); lbv.pause(); lbv.removeAttribute('src'); lbv.load(); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
+</script>
+</body>
+</html>
