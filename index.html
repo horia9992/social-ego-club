@@ -95,15 +95,13 @@ nav .btn{padding:12px 24px}
 .video .ph span{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
 
 /* logos */
-.logos{padding:70px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.logos h2{font-size:40px}
+.logos{padding:34px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);pointer-events:none;user-select:none}
 .logos .wrap{max-width:none;padding:0}
-.marquee{overflow:hidden;margin-top:40px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.track{display:flex;width:max-content;gap:18px;animation:scroll 38s linear infinite;padding-right:18px;will-change:transform}
-@media (hover:hover){.marquee:hover .track{animation-play-state:paused}}
-.track div{width:220px;height:96px;flex:none;border:1px solid var(--line);background:var(--panel);display:grid;place-items:center;padding:18px;transition:border-color .3s,background .3s}
-.track div:hover{border-color:var(--gold);background:rgba(201,164,104,.08)}
-.track img{max-height:46px;max-width:150px;object-fit:contain}
+.logos .label{text-align:center;display:block;margin-bottom:22px}
+.marquee{overflow:hidden}
+.track{display:flex;width:max-content;animation:scroll 40s linear infinite}
+.track div{width:200px;height:72px;flex:none;margin-right:16px;border:1px solid var(--line);background:var(--panel);display:grid;place-items:center;padding:14px 20px}
+.track img{max-height:34px;max-width:140px;object-fit:contain}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
 /* services */
@@ -173,7 +171,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   .hero{padding:40px 0 70px}
   .hero h1{font-size:44px}
   .video{outline-offset:10px;margin-top:40px}
-  .track{animation-duration:26s}.track div{width:170px;height:80px}
+  .logos{padding:22px 0 18px}.logos .label{margin-bottom:14px;font-size:10px}.track{animation-duration:28s}.track div{width:132px;height:50px;margin-right:10px;padding:10px 14px}.track img{max-height:24px;max-width:100px}
   .two,.six,.tiers{grid-template-columns:1fr}
   .tier.pop{transform:none}
   .grid{grid-template-columns:repeat(2,1fr)}
@@ -215,11 +213,10 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   </div>
 </header>
 
-<section class="reveal logos">
+<section class="logos">
   <div class="wrap center">
-    <div class="label">Trusted by</div>
-    <h2>Nume pe care le știi deja.</h2>
-    <div class="marquee" aria-label="Branduri cu care am lucrat"><div class="track" id="track"></div></div>
+    <span class="label">Trusted by · Nume pe care le știi deja</span>
+    <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
   </div>
 </section>
 
