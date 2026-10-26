@@ -43,11 +43,11 @@ section{padding:110px 0}
 
 /* animated sky (fixed layer, works on mobile too) */
 .sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#4a1010 0%,#2e0808 45%,#1c0505 100%)}
-.sky canvas{position:absolute;inset:-6%;width:112%;height:112%;filter:blur(26px);opacity:.9}
-.sky i{position:absolute;width:min(70vmax,900px);height:min(70vmax,900px);border-radius:50%;filter:blur(80px);mix-blend-mode:screen;will-change:transform;opacity:.55}
-.sky i:nth-child(1){background:radial-gradient(circle,rgba(160,40,40,.55),transparent 62%);top:-25%;left:-20%;animation:sk1 30s ease-in-out infinite alternate}
-.sky i:nth-child(2){background:radial-gradient(circle,rgba(201,164,104,.22),transparent 62%);top:20%;right:-25%;animation:sk2 36s ease-in-out infinite alternate}
-.sky i:nth-child(3){background:radial-gradient(circle,rgba(120,20,40,.5),transparent 62%);bottom:-30%;left:10%;animation:sk3 42s ease-in-out infinite alternate}
+.sky canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.sky i{position:absolute;width:min(70vmax,900px);height:min(70vmax,900px);border-radius:50%;will-change:transform;opacity:.6}
+.sky i:nth-child(1){background:radial-gradient(circle,rgba(160,40,40,.45),transparent 65%);top:-25%;left:-20%;animation:sk1 30s ease-in-out infinite alternate}
+.sky i:nth-child(2){background:radial-gradient(circle,rgba(201,164,104,.16),transparent 65%);top:20%;right:-25%;animation:sk2 36s ease-in-out infinite alternate}
+.sky i:nth-child(3){background:radial-gradient(circle,rgba(120,20,40,.4),transparent 65%);bottom:-30%;left:10%;animation:sk3 42s ease-in-out infinite alternate}
 @keyframes sk1{to{transform:translate(30vw,25vh) scale(1.2)}}
 @keyframes sk2{to{transform:translate(-28vw,30vh) scale(.9)}}
 @keyframes sk3{to{transform:translate(20vw,-28vh) scale(1.25)}}
@@ -99,7 +99,7 @@ nav .btn{padding:12px 24px}
 .logos .wrap{max-width:none;padding:0}
 .logos .label{text-align:center;display:block;margin-bottom:22px}
 .marquee{overflow:hidden}
-.track{display:flex;width:max-content;animation:scroll 40s linear infinite;transform:translate3d(0,0,0);backface-visibility:hidden}
+.track{display:flex;width:max-content;animation:scroll 40s linear infinite}
 .track div{width:200px;height:72px;flex:none;margin-right:16px;border:1px solid var(--line);background:var(--panel);display:grid;place-items:center;padding:14px 20px}
 .track img{max-height:34px;max-width:140px;object-fit:contain}
 @keyframes scroll{to{transform:translateX(-50%)}}
@@ -335,7 +335,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     { col: 'rgba(120,20,35,.45)',   y: .70, amp: .14, len: 0.9, sp: .07, ph: 4.4, th: .26 },
     { col: 'rgba(201,164,104,.13)', y: .86, amp: .08, len: 1.2, sp: .10, ph: 5.6, th: .15 },
   ];
-  function size(){ W = c.width = Math.max(320, Math.round(innerWidth / 2)); H = c.height = Math.round(innerHeight / 2); }
+  function size(){ W = c.width = Math.max(240, Math.round(innerWidth / 3)); H = c.height = Math.round(innerHeight / 3); }
   function curve(b, t, off){
     x.moveTo(-10, H * (b.y + off));
     for (let i = 0; i <= 24; i++) {
@@ -344,22 +344,29 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
       x.lineTo(px, py);
     }
   }
+  function band(b, t, th, col){
+    x.beginPath();
+    curve(b, t, -th / 2);
+    for (let i = 24; i >= 0; i--) {
+      const px = -10 + (W + 20) * i / 24, u = i / 24;
+      const py = H * (b.y + th / 2) + H * b.amp * (Math.sin(u * 6.28 * b.len + t * b.sp * .8 + b.ph + .9) * .7 + Math.sin(u * 6.28 * b.len * 1.7 - t * b.sp * 1.3 + b.ph) * .3);
+      x.lineTo(px, py);
+    }
+    x.closePath(); x.fillStyle = col; x.fill();
+  }
+  let lastFrame = 0;
   function draw(ms){
+    if (ms - lastFrame < 33) { requestAnimationFrame(draw); return; }
+    lastFrame = ms;
     const t = ms / 1000;
     x.clearRect(0, 0, W, H);
-    x.globalCompositeOperation = 'lighter';
     for (const b of BANDS) {
-      x.beginPath();
-      curve(b, t, -b.th / 2);
-      // back along the lower edge
-      for (let i = 24; i >= 0; i--) {
-        const px = -10 + (W + 20) * i / 24, u = i / 24;
-        const py = H * (b.y + b.th / 2) + H * b.amp * (Math.sin(u * 6.28 * b.len + t * b.sp * .8 + b.ph + .9) * .7 + Math.sin(u * 6.28 * b.len * 1.7 - t * b.sp * 1.3 + b.ph) * .3);
-        x.lineTo(px, py);
-      }
-      x.closePath(); x.fillStyle = b.col; x.fill();
+      // trei straturi din ce în ce mai late și mai transparente = margini moi, fără filtru CSS
+      const m = b.col.match(/rgba\((\d+),(\d+),(\d+),([.\d]+)\)/), r = m[1], g = m[2], bl = m[3], a = +m[4];
+      band(b, t, b.th * 1.9, `rgba(${r},${g},${bl},${a * .25})`);
+      band(b, t, b.th * 1.4, `rgba(${r},${g},${bl},${a * .35})`);
+      band(b, t, b.th,       `rgba(${r},${g},${bl},${a * .55})`);
     }
-    x.globalCompositeOperation = 'source-over';
     if (!reduce) requestAnimationFrame(draw);
   }
   size(); addEventListener('resize', size); requestAnimationFrame(draw);
