@@ -154,7 +154,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
 /* lightbox */
 .lb{position:fixed;inset:0;background:rgba(20,4,4,.94);display:none;place-items:center;z-index:50;padding:24px}
 .lb.on{display:grid}
-.lb video{max-width:min(92vw,1100px);max-height:88vh;border:1px solid var(--gold);outline:1px solid var(--line);outline-offset:10px;background:#000}
+.lb video{max-width:min(92vw,1100px);max-height:88vh;width:auto;height:88vh;border:1px solid var(--gold);outline:1px solid var(--line);outline-offset:10px;background:#000}
 .lb .x{position:absolute;top:22px;right:28px;color:var(--cream);font-size:28px;cursor:pointer;border:1px solid var(--line);width:44px;height:44px;display:grid;place-items:center}
 
 @media (max-width:980px){
@@ -246,7 +246,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     <div class="center"><div class="label">Proiecte</div><h2>Ce am făcut.</h2></div>
 
     <div class="proj-head"><h3>Producție video &amp; campanii</h3><span>Social EGO Club</span></div>
-    <div class="grid" id="grid-clasic"></div>
+    <div class="grid v" id="grid-clasic"></div>
 
     <div class="proj-head"><h3>Reclame video cu AI</h3><span>AI Studio</span></div>
     <div class="grid v" id="grid-ai"></div>
@@ -294,8 +294,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     <p>Brandurile care se mișcă azi sunt cele despre care se vorbește mâine.</p>
     <!-- CONTACT: completează linkurile de mai jos (număr WhatsApp fără + și spații, adresă de email) -->
     <div class="contact">
-      <a class="btn solid" href="https://wa.me/40000000000" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn" href="mailto:contact@socialegoclub.ro">Email</a>
+      <a class="btn solid" href="https://wa.me/40747756067" target="_blank" rel="noopener">WhatsApp · +40 747 756 067</a>
     </div>
   </div>
 </section>
@@ -339,10 +338,13 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
    Pentru fiecare clip: { client, tag, video: 'media/fisier.mp4', poster: 'media/fisier.jpg' }
    Un element fără "video" apare ca loc gol („Video în curând”). Numărul de elemente = numărul de carduri. */
 const CLASIC = [
-  { client: '', tag: 'Campanie' },
-  { client: '', tag: 'Brand film' },
-  { client: '', tag: 'Social' },
-  { client: '', tag: 'Influenceri' },
+  { client: 'BOTTI 56',   tag: 'Brand film', video: 'media/botti56-1.mp4',          poster: 'media/botti56-1.jpg' },
+  { client: 'BOTTI 56',   tag: 'Brand film', video: 'media/botti56-2.mp4',          poster: 'media/botti56-2.jpg' },
+  { client: 'Nuba',       tag: 'Social',     video: 'media/nuba.mp4',               poster: 'media/nuba.jpg' },
+  { client: 'Goldclinic', tag: 'Social',     video: 'media/goldclinic-dermato.mp4', poster: 'media/goldclinic-dermato.jpg' },
+  { client: 'Goldclinic', tag: 'Social',     video: 'media/goldclinic-pneumo.mp4',  poster: 'media/goldclinic-pneumo.jpg' },
+  { client: 'Goldclinic', tag: 'Social',     video: 'media/goldclinic-psiho.mp4',   poster: 'media/goldclinic-psiho.jpg' },
+  { client: 'Goldclinic', tag: 'Social',     video: 'media/goldclinic-gineco.mp4',  poster: 'media/goldclinic-gineco.jpg' },
 ];
 const AI = [
   { client: '', tag: 'AI' },
