@@ -98,11 +98,10 @@ nav .btn{padding:12px 24px}
 .logos{padding:34px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);pointer-events:none;user-select:none}
 .logos .wrap{max-width:none;padding:0}
 .logos .label{text-align:center;display:block;margin-bottom:22px}
-.marquee{overflow:hidden}
-.track{display:flex;width:max-content;animation:scroll 40s linear infinite}
-.track div{width:200px;height:72px;flex:none;margin-right:16px;border:1px solid var(--line);background:var(--panel);display:grid;place-items:center;padding:14px 20px}
-.track img{max-height:34px;max-width:140px;object-fit:contain}
-@keyframes scroll{to{transform:translateX(-50%)}}
+.marquee{overflow:hidden;white-space:nowrap;line-height:0}
+.track{display:inline-block;white-space:nowrap;will-change:transform}
+.logo{display:inline-block;vertical-align:top;width:200px;height:72px;margin-right:16px;border:1px solid var(--line);background:rgba(90,20,20,.55);text-align:center;line-height:70px;white-space:nowrap}
+.logo img{display:inline-block;vertical-align:middle;max-height:34px;max-width:140px;width:auto;height:auto}
 
 /* services */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:50px;text-align:left}
@@ -171,7 +170,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   .hero{padding:40px 0 70px}
   .hero h1{font-size:44px}
   .video{outline-offset:10px;margin-top:40px}
-  .logos{padding:22px 0 18px}.logos .label{margin-bottom:14px;font-size:10px}.track{animation-duration:28s}.track div{width:132px;height:50px;margin-right:10px;padding:10px 14px}.track img{max-height:24px;max-width:100px}
+  .logos{padding:22px 0 18px}.logos .label{margin-bottom:14px;font-size:10px}.logo{width:132px;height:50px;margin-right:10px;line-height:48px}.logo img{max-height:24px;max-width:100px}
   .two,.six,.tiers{grid-template-columns:1fr}
   .tier.pop{transform:none}
   .grid{grid-template-columns:repeat(2,1fr)}
@@ -216,7 +215,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
 <section class="logos">
   <div class="wrap center">
     <span class="label">Trusted by · Nume pe care le știi deja</span>
-    <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+    <div class="marquee" aria-hidden="true"><div class="track" id="track"><span class="logo"><img src="assets/logo-globalrecords.png" alt="Global Records"></span><span class="logo"><img src="assets/logo-beachplease.png" alt="Beach, Please!"></span><span class="logo"><img src="assets/logo-nuba.png" alt="Nuba"></span><span class="logo"><img src="assets/logo-nibiru.png" alt="Nibiru"></span><span class="logo"><img src="assets/logo-fry.png" alt="FRY."></span><span class="logo"><img src="assets/logo-selfy.png" alt="Selfy Media Network"></span><span class="logo"><img src="assets/logo-hiro.png" alt="hiro"></span><span class="logo"><img src="assets/logo-goldclinic.png" alt="Goldclinic"></span><span class="logo"><img src="assets/logo-anadolu.png" alt="Anadolu Medical Center"></span><span class="logo"><img src="assets/logo-presto.png" alt="Presto Pizza"></span><span class="logo"><img src="assets/logo-globalrecords.png" alt="Global Records"></span><span class="logo"><img src="assets/logo-beachplease.png" alt="Beach, Please!"></span><span class="logo"><img src="assets/logo-nuba.png" alt="Nuba"></span><span class="logo"><img src="assets/logo-nibiru.png" alt="Nibiru"></span><span class="logo"><img src="assets/logo-fry.png" alt="FRY."></span><span class="logo"><img src="assets/logo-selfy.png" alt="Selfy Media Network"></span><span class="logo"><img src="assets/logo-hiro.png" alt="hiro"></span><span class="logo"><img src="assets/logo-goldclinic.png" alt="Goldclinic"></span><span class="logo"><img src="assets/logo-anadolu.png" alt="Anadolu Medical Center"></span><span class="logo"><img src="assets/logo-presto.png" alt="Presto Pizza"></span></div></div>
   </div>
 </section>
 
@@ -305,18 +304,16 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
 <div class="lb" id="lb" onclick="closeLb()"><div class="x">×</div><video id="lbv" controls playsinline></video></div>
 
 <script>
-/* ===== LOGO-URI (carusel continuu) ===== */
-const LOGOS = [['globalrecords','Global Records'],['beachplease','Beach, Please!'],['nuba','Nuba'],['nibiru','Nibiru'],['fry','FRY.'],['selfy','Selfy Media Network'],['hiro','hiro'],['goldclinic','Goldclinic'],['anadolu','Anadolu Medical Center'],['presto','Presto Pizza']];
-document.getElementById('track').innerHTML = [...LOGOS, ...LOGOS].map(([f,n]) => `<div><img src="assets/logo-${f}.png" alt="${n}" decoding="sync"></div>`).join('');
-// Rezervă: dacă animația CSS nu rulează (unele browsere mobile), mișcăm banda din JS.
+/* ===== LOGO-URI (carusel continuu, mișcat din JS, fără animație CSS) ===== */
 (() => {
   const tr = document.getElementById('track');
-  setTimeout(() => {
-    const anims = tr.getAnimations ? tr.getAnimations() : [];
-    if (anims.length && anims[0].playState === 'running') return;
-    tr.style.animation = 'none'; let x = 0, last = performance.now();
-    (function step(now){ const half = tr.scrollWidth / 2; x += (now - last) * half / 40000; last = now; if (x >= half) x -= half; tr.style.transform = `translate3d(${-x}px,0,0)`; requestAnimationFrame(step); })(last);
-  }, 1500);
+  let x = 0, last = 0, half = 0;
+  const measure = () => { half = tr.offsetWidth / 2; };
+  addEventListener('load', measure); addEventListener('resize', measure); measure();
+  (function step(now){
+    if (last && half) { x += (now - last) * (innerWidth < 980 ? 0.045 : 0.06); if (x >= half) x -= half; tr.style.transform = 'translateX(' + (-x).toFixed(2) + 'px)'; }
+    last = now; requestAnimationFrame(step);
+  })(0);
 })();
 
 /* ===== REVEAL LA SCROLL ===== */
