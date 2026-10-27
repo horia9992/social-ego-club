@@ -185,6 +185,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   .tier.pop{transform:scale(1.06);background:linear-gradient(180deg,rgba(201,164,104,.22),rgba(90,20,20,.7));border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 18px 40px rgba(0,0,0,.5);z-index:1}
   .tier.pop .label::before{content:"✓ ";color:var(--gold)}
   .note{font-size:10px;margin-top:22px}
+  .tiers + .center{margin-top:26px!important}.tiers + .center .btn{padding:14px 18px;font-size:11px;letter-spacing:.2em}
   .grid{grid-template-columns:repeat(2,1fr)}
   .grid.v{grid-template-columns:repeat(2,1fr)}
   .proj-head{flex-direction:column;align-items:flex-start;gap:6px}
@@ -205,7 +206,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     <li><a href="#preturi">Prețuri</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a class="btn" href="#contact">Hai să vorbim</a>
+  <a class="btn wa" href="https://wa.me/40747756067" target="_blank" rel="noopener">Hai să vorbim</a>
   <button class="burger" aria-label="Meniu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
 </nav>
 
@@ -214,7 +215,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     <div class="star">✦ &nbsp; Private Club &nbsp; ✦</div>
     <h1>Dincolo de o agenție. <em>Un club.</em></h1>
     <p class="lead">Primul ecosistem privat de branduri din România, acum și cu reclame video făcute cu AI.</p>
-    <div class="ctas"><a class="btn solid" href="#contact">Hai să vorbim</a><a class="btn" href="#proiecte">Vezi proiectele</a></div>
+    <div class="ctas"><a class="btn solid wa" href="https://wa.me/40747756067" target="_blank" rel="noopener">Hai să vorbim</a><a class="btn" href="#proiecte">Vezi proiectele</a></div>
 
     <!-- VIDEO HERO: când există clipul, înlocuiește blocul .ph cu:
          <video src="media/intro.mp4" poster="media/intro.jpg" controls playsinline></video> -->
@@ -285,16 +286,17 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   <div class="wrap">
     <div class="center"><div class="label">Membership</div><h2>Alege-ți nivelul.</h2></div>
     <div class="tiers">
-      <div class="tier frame"><span class="label">Essential Signature</span><div class="price">€999<small>/ lună</small></div>
+      <div class="tier frame" data-name="Essential Signature" data-price="€999 / lună" data-addon="+ €249, 5 reclame video AI / lună"><span class="label">Essential Signature</span><div class="price">€999<small>/ lună</small></div>
         <ul><li>12 videoclipuri pe lună</li><li>2 zile de filmare</li><li>Editare &amp; post completă</li><li>Optimizare pe platforme</li></ul>
         <div class="addon">+ Add-on AI<b>+ €249</b>5 reclame video AI / lună</div></div>
-      <div class="tier pop frame"><span class="label">✦ Cel mai popular · Expansion Layer</span><div class="price">€1.999<small>/ lună</small></div>
+      <div class="tier pop frame" data-name="Expansion Layer" data-price="€1.999 / lună" data-addon="+ €499, 12 reclame video AI + variante A/B"><span class="label">✦ Cel mai popular · Expansion Layer</span><div class="price">€1.999<small>/ lună</small></div>
         <ul><li>30 videoclipuri pe lună</li><li>4 zile de filmare</li><li>Account management complet</li><li>Analytics &amp; raportare lunară</li></ul>
         <div class="addon">+ Add-on AI<b>+ €499</b>12 reclame video AI + variante A/B</div></div>
-      <div class="tier frame"><span class="label">Elite Scale</span><div class="price">€2.499<small>/ lună</small></div>
+      <div class="tier frame" data-name="Elite Scale" data-price="€2.499 / lună" data-addon="+ €999, 30 reclame AI + 1 brand film AI"><span class="label">Elite Scale</span><div class="price">€2.499<small>/ lună</small></div>
         <ul><li>30 clipuri + 4 brand films</li><li>6–7 zile de filmare</li><li>Sesiuni de strategie săptămânale</li><li>Management premium</li></ul>
         <div class="addon">+ Add-on AI<b>+ €999</b>30 reclame AI + 1 brand film AI</div></div>
     </div>
+    <div class="center" style="margin-top:40px"><a class="btn solid wa" href="https://wa.me/40747756067" target="_blank" rel="noopener">Hai să vorbim despre <span id="chosen">Expansion Layer</span></a></div>
     <p class="note">Abonamentele la aplicațiile de AI (generare video, voce, imagine) se facturează separat, la cost, în funcție de volumul de generări. Estimare: €100–300 / lună.</p>
   </div>
 </section>
@@ -307,7 +309,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     <p>Brandurile care se mișcă azi sunt cele despre care se vorbește mâine.</p>
     <!-- CONTACT: completează linkurile de mai jos (număr WhatsApp fără + și spații, adresă de email) -->
     <div class="contact">
-      <a class="btn solid" href="https://wa.me/40747756067" target="_blank" rel="noopener">WhatsApp · +40 747 756 067</a>
+      <a class="btn solid wa" href="https://wa.me/40747756067" target="_blank" rel="noopener">WhatsApp · +40 747 756 067</a>
     </div>
   </div>
 </section>
@@ -331,6 +333,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
 /* ===== PACHETE: cel apăsat trece în mijloc și devine „ales” ===== */
 (() => {
   const grid = document.querySelector('.tiers');
+  function setChosen(t){
+    const msg = `Salut! Sunt interesat de pachetul ${t.dataset.name} (${t.dataset.price}) cu add-on AI (${t.dataset.addon}). Putem vorbi?`;
+    const url = 'https://wa.me/40747756067?text=' + encodeURIComponent(msg);
+    document.querySelectorAll('a.wa').forEach(a => a.href = url);
+    const c = document.getElementById('chosen'); if (c) c.textContent = t.dataset.name;
+  }
+  setChosen(grid.querySelector('.tier.pop'));
   grid.addEventListener('click', e => {
     const t = e.target.closest('.tier'); if (!t) return;
     const tiers = [...grid.children], mid = tiers[1];
@@ -339,7 +348,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     // schimbă locurile: cel apăsat vine în mijloc, cel din mijloc ia locul lui
     const idx = tiers.indexOf(t);
     if (idx === 0) { grid.insertBefore(mid, t); } else { grid.insertBefore(t, mid); }
-    tiers.forEach(el => el.classList.remove('pop')); t.classList.add('pop');
+    tiers.forEach(el => el.classList.remove('pop')); t.classList.add('pop'); setChosen(t);
     // animație FLIP: pornesc din vechea poziție și alunecă în cea nouă
     for (const el of grid.children) {
       const a = before.get(el), b = el.getBoundingClientRect();
