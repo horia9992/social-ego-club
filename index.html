@@ -137,7 +137,7 @@ nav .btn{padding:12px 24px}
 
 /* pricing */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
-.tier{border:1px solid var(--line);background:var(--panel);padding:44px 34px;text-align:center}
+.tier{border:1px solid var(--line);background:var(--panel);padding:44px 34px;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .tier.pop{border-color:var(--gold);transform:scale(1.04);box-shadow:0 30px 60px rgba(0,0,0,.4)}
 .tier .label{display:block;margin-bottom:12px}
 .tier .price{font-family:var(--serif);font-size:48px;color:var(--gold)}
@@ -326,6 +326,28 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     if (last && half) { x += (now - last) * (innerWidth < 980 ? 0.045 : 0.06); if (x >= half) x -= half; tr.style.transform = 'translateX(' + (-x).toFixed(2) + 'px)'; }
     last = now; requestAnimationFrame(step);
   })(0);
+})();
+
+/* ===== PACHETE: cel apăsat trece în mijloc și devine „ales” ===== */
+(() => {
+  const grid = document.querySelector('.tiers');
+  grid.addEventListener('click', e => {
+    const t = e.target.closest('.tier'); if (!t) return;
+    const tiers = [...grid.children], mid = tiers[1];
+    if (t === mid) return;
+    const before = new Map(tiers.map(el => [el, el.getBoundingClientRect()]));
+    // schimbă locurile: cel apăsat vine în mijloc, cel din mijloc ia locul lui
+    const idx = tiers.indexOf(t);
+    if (idx === 0) { grid.insertBefore(mid, t); } else { grid.insertBefore(t, mid); }
+    tiers.forEach(el => el.classList.remove('pop')); t.classList.add('pop');
+    // animație FLIP: pornesc din vechea poziție și alunecă în cea nouă
+    for (const el of grid.children) {
+      const a = before.get(el), b = el.getBoundingClientRect();
+      const dx = a.left - b.left, dy = a.top - b.top;
+      el.style.transition = 'none'; el.style.transform = `translate(${dx}px,${dy}px)` + (el.classList.contains('pop') ? ' scale(.96)' : '');
+      requestAnimationFrame(() => requestAnimationFrame(() => { el.style.transition = 'transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s,background .35s'; el.style.transform = ''; }));
+    }
+  });
 })();
 
 /* ===== REVEAL LA SCROLL ===== */
