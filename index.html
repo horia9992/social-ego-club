@@ -235,6 +235,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   .same{font-size:8px;letter-spacing:.2em;margin-top:16px}
   .hook .thumb span{display:none}.hook .thumb .pl{width:36px;height:36px;margin:-18px 0 0 -18px}.hook .thumb .pl::after{left:14px;top:10px;border-left-width:10px;border-top-width:7px;border-bottom-width:7px}
   .cta h2{font-size:44px}
+  .contact{gap:10px}.contact .btn{width:100%;letter-spacing:.14em;font-size:10px;padding:16px 10px;white-space:nowrap}
   .card{padding:30px 24px}
 }
 </style>
@@ -422,10 +423,11 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     <!-- CONTACT: completează linkurile de mai jos (număr WhatsApp fără + și spații, adresă de email) -->
     <div class="contact">
       <a class="btn solid wa" href="https://wa.me/40747756067" target="_blank" rel="noopener">WhatsApp · +40 747 756 067</a>
+      <a class="btn mail" href="mailto:contact@socialegoclub.ro?subject=Colaborare%20Social%20EGO%20Club">Email · contact@socialegoclub.ro</a>
     </div>
   </div>
 </section>
-<footer>Social EGO Club · Est 2026 · București<br>Marketing clasic &amp; reclame video cu AI</footer>
+<footer>Social EGO Club · Est 2026 · București<br>Marketing clasic &amp; reclame video cu AI<br><a href="mailto:contact@socialegoclub.ro" style="color:var(--gold);text-decoration:none;letter-spacing:.2em;text-transform:none">contact@socialegoclub.ro</a></footer>
 
 <div class="lb" id="lb" onclick="closeLb()"><div class="x">×</div><video id="lbv" controls playsinline></video></div>
 
@@ -508,6 +510,7 @@ document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', ()
 </script>
 <script>
 function track(path){ try{ window.goatcounter && goatcounter.count({path: path, title: path, event: true}); }catch(e){} }
+document.querySelectorAll('a.mail').forEach(a => a.addEventListener('click', () => track('email/contact')));
 document.querySelectorAll('a.wa').forEach(a => a.addEventListener('click', () => {
   const c = document.getElementById('chosen'); track('whatsapp/' + (a.closest('.tiers, #preturi') && c ? c.textContent.trim().toLowerCase().replace(/\s+/g,'-') : 'contact'));
 }));
