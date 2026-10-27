@@ -297,7 +297,6 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
       </div>
       <div class="same">după hook, același videoclip</div>
     </div>
-    <div class="grid v" id="grid-ai"></div>
   </div>
 </section>
 
@@ -429,21 +428,13 @@ const CLASIC = [
   { client: 'Goldclinic', tag: 'Social',     video: 'media/goldclinic-pneumo.mp4',  poster: 'media/goldclinic-pneumo.jpg' },
   { client: 'Goldclinic', tag: 'Social',     video: 'media/goldclinic-psiho.mp4',   poster: 'media/goldclinic-psiho.jpg' },
 ];
-const AI = [
-  { client: 'Astravia', tag: 'AI · Hook',    video: 'media/ai-hook-2.mp4',            poster: 'media/ai-hook-2.jpg' },
-  { client: 'Fotoliu',  tag: 'AI · Reclamă', video: 'media/ai-fotoliu.mp4',           poster: 'media/ai-fotoliu.jpg' },
-  { client: 'Astravia', tag: 'AI · Reclamă', video: 'media/ai-astravia-body-cta.mp4', poster: 'media/ai-astravia-body-cta.jpg' },
-  { client: 'Astravia', tag: 'AI · Reclamă', video: 'media/ai-shared-body-cta.mp4',   poster: 'media/ai-shared-body-cta.jpg' },
-  { client: 'Astravia', tag: 'AI · Hook',    video: 'media/ai-hook-1-lung.mp4',       poster: 'media/ai-hook-1-lung.jpg' },
-  { client: 'Astravia', tag: 'AI · Hook',    video: 'media/ai-hook-2-lung.mp4',       poster: 'media/ai-hook-2-lung.jpg' },
-];
 function render(id, items){
   const g = document.getElementById(id);
   g.innerHTML = items.map(it => it.video
     ? `<div class="thumb" style="background-image:url('${it.poster||''}')" data-v="${it.video}"><i>${it.tag}</i><div class="pl"></div><span>${it.client}</span></div>`
     : `<div class="thumb empty"><em>Video<br>în curând</em></div>`).join('');
 }
-render('grid-clasic', CLASIC); render('grid-ai', AI);
+render('grid-clasic', CLASIC);
 document.querySelectorAll('.thumb[data-v]').forEach(t => t.addEventListener('click', () => openLb(t.dataset.v)));
 const lb = document.getElementById('lb'), lbv = document.getElementById('lbv');
 function openLb(src){ lbv.src = src; lb.classList.add('on'); lbv.play().catch(()=>{}); track('clip/' + src.split('/').pop().replace('.mp4','')); }
