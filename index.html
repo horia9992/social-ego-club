@@ -128,8 +128,13 @@ nav .btn{padding:12px 24px}
 .hooks-intro p{color:var(--muted);font-size:14px;margin:0;max-width:620px}
 .set-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
 .set-head b{font-family:var(--serif);font-weight:400;font-size:20px}
-.hooks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:780px}
+.hooks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:780px;margin:0 auto}
+.hooks.big{justify-content:center}
+.same{margin-left:auto!important;margin-right:auto!important}
 .hook .thumb{aspect-ratio:9/14}
+.hooks.big{grid-template-columns:repeat(2,minmax(0,calc(78vh * 9 / 16)));max-width:none;gap:22px}
+.hooks.big .thumb{aspect-ratio:9/16}
+.hooks.big .thumb .pl{width:68px;height:68px;margin:-34px 0 0 -34px}.hooks.big .thumb .pl::after{left:27px;top:21px;border-left-width:18px;border-top-width:13px;border-bottom-width:13px}
 .hook .thumb i{top:auto;bottom:12px;right:12px;background:var(--gold);color:#2e0808;border-color:var(--gold)}
 .hook b{display:block;margin-top:12px;font-family:var(--serif);font-weight:400;font-size:19px}
 .hook small{display:block;color:var(--muted);font-size:12px;margin-top:3px;line-height:1.5}
@@ -220,7 +225,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   .grid.v{grid-template-columns:repeat(2,1fr)}
   .proj-head{flex-direction:column;align-items:flex-start;gap:6px}
   .hookset{padding:18px 14px 16px;margin-bottom:18px}.hooks-intro h4{font-size:22px}.hooks-intro p{font-size:13px}.set-head{gap:10px;margin-bottom:12px}.set-head b{font-size:15px}
-  .hooks{gap:8px}.hook b{font-size:14px;margin-top:8px}.hook small{font-size:10px}.hook .thumb i{font-size:8px;padding:3px 5px;right:6px;bottom:8px}
+  .hooks{gap:8px}.hooks.big{grid-template-columns:1fr 1fr;gap:8px}.hook b{font-size:14px;margin-top:8px}.hook small{font-size:10px}.hook .thumb i{font-size:8px;padding:3px 5px;right:6px;bottom:8px}
   .same{font-size:8px;letter-spacing:.2em;margin-top:16px}
   .hook .thumb span{display:none}.hook .thumb .pl{width:36px;height:36px;margin:-18px 0 0 -18px}.hook .thumb .pl::after{left:14px;top:10px;border-left-width:10px;border-top-width:7px;border-bottom-width:7px}
   .cta h2{font-size:44px}
@@ -292,7 +297,36 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     <div class="center"><div class="label">Proiecte</div><h2>Ce am făcut.</h2></div>
 
     <div class="proj-head"><h3>Producție video &amp; campanii</h3><span>Social EGO Club</span></div>
-    <div class="grid v" id="grid-clasic"></div>
+    <div class="hookset reveal">
+      <div class="set-head"><span class="label">Brand film</span><b>BOTTI 56</b></div>
+      <div class="hooks big">
+        <div class="hook"><div class="thumb" style="background-image:url('media/botti56-1.jpg')" data-v="media/botti56-1.mp4"><i>Brand film</i><div class="pl"></div><span>BOTTI 56</span></div></div><div class="hook"><div class="thumb" style="background-image:url('media/botti56-2.jpg')" data-v="media/botti56-2.mp4"><i>Brand film</i><div class="pl"></div><span>BOTTI 56</span></div></div>
+      </div>
+    </div>
+    <div class="hookset reveal">
+      <div class="set-head"><span class="label">Campanie</span><b>Beach, Please! × Nibiru</b></div>
+      <div class="hooks big">
+        <div class="hook"><div class="thumb" style="background-image:url('media/beachplease.jpg')" data-v="media/beachplease.mp4"><i>Campanie</i><div class="pl"></div><span>Beach, Please!</span></div></div><div class="hook"><div class="thumb" style="background-image:url('media/nibiru.jpg')" data-v="media/nibiru.mp4"><i>Social</i><div class="pl"></div><span>Nibiru</span></div></div>
+      </div>
+    </div>
+    <div class="hookset reveal">
+      <div class="set-head"><span class="label">Campanie</span><b>hiro</b></div>
+      <div class="hooks big">
+        <div class="hook"><div class="thumb" style="background-image:url('media/hiro-1.jpg')" data-v="media/hiro-1.mp4"><i>Campanie</i><div class="pl"></div><span>hiro</span></div></div><div class="hook"><div class="thumb" style="background-image:url('media/hiro-2.jpg')" data-v="media/hiro-2.mp4"><i>Campanie</i><div class="pl"></div><span>hiro</span></div></div>
+      </div>
+    </div>
+    <div class="hookset reveal">
+      <div class="set-head"><span class="label">Social</span><b>Nuba</b></div>
+      <div class="hooks">
+        <div class="hook"><div class="thumb" style="background-image:url('media/nuba-cafe.jpg')" data-v="media/nuba-cafe.mp4"><i>Social</i><div class="pl"></div><span>Nuba</span></div></div><div class="hook"><div class="thumb" style="background-image:url('media/nuba-club.jpg')" data-v="media/nuba-club.mp4"><i>Social</i><div class="pl"></div><span>Nuba</span></div></div><div class="hook"><div class="thumb" style="background-image:url('media/nuba.jpg')" data-v="media/nuba.mp4"><i>Social</i><div class="pl"></div><span>Nuba</span></div></div>
+      </div>
+    </div>
+    <div class="hookset reveal">
+      <div class="set-head"><span class="label">Social</span><b>Goldclinic</b></div>
+      <div class="hooks">
+        <div class="hook"><div class="thumb" style="background-image:url('media/goldclinic-dermato.jpg')" data-v="media/goldclinic-dermato.mp4"><i>Social</i><div class="pl"></div><span>Goldclinic</span></div></div><div class="hook"><div class="thumb" style="background-image:url('media/goldclinic-pneumo.jpg')" data-v="media/goldclinic-pneumo.mp4"><i>Social</i><div class="pl"></div><span>Goldclinic</span></div></div><div class="hook"><div class="thumb" style="background-image:url('media/goldclinic-psiho.jpg')" data-v="media/goldclinic-psiho.mp4"><i>Social</i><div class="pl"></div><span>Goldclinic</span></div></div>
+      </div>
+    </div>
 
     <div class="proj-head"><h3>Reclame video cu AI</h3><span>AI Studio</span></div>
     <div class="hooks-intro reveal">
@@ -444,27 +478,12 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 /* ===== PROIECTE =====
    Pentru fiecare clip: { client, tag, video: 'media/fisier.mp4', poster: 'media/fisier.jpg' }
    Un element fără "video" apare ca loc gol („Video în curând”). Numărul de elemente = numărul de carduri. */
-const CLASIC = [
-  { client: 'BOTTI 56',   tag: 'Brand film', video: 'media/botti56-1.mp4',          poster: 'media/botti56-1.jpg' },
-  { client: 'BOTTI 56',   tag: 'Brand film', video: 'media/botti56-2.mp4',          poster: 'media/botti56-2.jpg' },
-  { client: 'Beach, Please!', tag: 'Campanie', video: 'media/beachplease.mp4', poster: 'media/beachplease.jpg' },
-  { client: 'Nibiru',     tag: 'Social',     video: 'media/nibiru.mp4',             poster: 'media/nibiru.jpg' },
-  { client: 'hiro',       tag: 'Campanie',   video: 'media/hiro-1.mp4',             poster: 'media/hiro-1.jpg' },
-  { client: 'hiro',       tag: 'Campanie',   video: 'media/hiro-2.mp4',             poster: 'media/hiro-2.jpg' },
-  { client: 'Nuba',       tag: 'Social',     video: 'media/nuba-cafe.mp4',          poster: 'media/nuba-cafe.jpg' },
-  { client: 'Nuba',       tag: 'Social',     video: 'media/nuba-club.mp4',          poster: 'media/nuba-club.jpg' },
-  { client: 'Nuba',       tag: 'Social',     video: 'media/nuba.mp4',               poster: 'media/nuba.jpg' },
-  { client: 'Goldclinic', tag: 'Social',     video: 'media/goldclinic-dermato.mp4', poster: 'media/goldclinic-dermato.jpg' },
-  { client: 'Goldclinic', tag: 'Social',     video: 'media/goldclinic-pneumo.mp4',  poster: 'media/goldclinic-pneumo.jpg' },
-  { client: 'Goldclinic', tag: 'Social',     video: 'media/goldclinic-psiho.mp4',   poster: 'media/goldclinic-psiho.jpg' },
-];
 function render(id, items){
   const g = document.getElementById(id);
   g.innerHTML = items.map(it => it.video
     ? `<div class="thumb" style="background-image:url('${it.poster||''}')" data-v="${it.video}"><i>${it.tag}</i><div class="pl"></div><span>${it.client}</span></div>`
     : `<div class="thumb empty"><em>Video<br>în curând</em></div>`).join('');
 }
-render('grid-clasic', CLASIC);
 document.querySelectorAll('.thumb[data-v]').forEach(t => t.addEventListener('click', () => openLb(t.dataset.v)));
 const lb = document.getElementById('lb'), lbv = document.getElementById('lbv');
 function openLb(src){ lbv.src = src; lb.classList.add('on'); lbv.play().catch(()=>{}); track('clip/' + src.split('/').pop().replace('.mp4','')); }
