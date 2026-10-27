@@ -122,9 +122,12 @@ nav .btn{padding:12px 24px}
 .proj-head h3{font-size:30px}
 .proj-head span{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
 .hookset{margin-bottom:36px;padding:30px 32px 26px;border:1px solid var(--gold);background:linear-gradient(180deg,rgba(201,164,104,.09),rgba(46,8,8,0));box-shadow:0 0 0 1px rgba(201,164,104,.15) inset}
-.hookset h4{font-family:var(--serif);font-size:30px;font-weight:400;margin:10px 0 6px;letter-spacing:.01em}
-.hookset h4 em{color:var(--gold)}
-.hookset>p{color:var(--muted);font-size:14px;margin:0 0 24px;max-width:620px}
+.hooks-intro{margin-bottom:22px}
+.hooks-intro h4{font-family:var(--serif);font-size:30px;font-weight:400;margin:10px 0 6px;letter-spacing:.01em}
+.hooks-intro h4 em{color:var(--gold)}
+.hooks-intro p{color:var(--muted);font-size:14px;margin:0;max-width:620px}
+.set-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+.set-head b{font-family:var(--serif);font-weight:400;font-size:20px}
 .hooks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:780px}
 .hook .thumb{aspect-ratio:9/14}
 .hook .thumb i{top:auto;bottom:12px;right:12px;background:var(--gold);color:#2e0808;border-color:var(--gold)}
@@ -194,7 +197,12 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   .hero h1{font-size:44px}
   .video{outline-offset:10px;margin-top:40px}
   .logos{padding:36px 0 30px}.logos .label{margin-bottom:8px;font-size:10px}.logos h2{font-size:26px;margin-bottom:22px}.logo{height:80px;margin:0 20px;line-height:80px}.logo img{max-height:42px;max-width:150px}.logo.big img{max-height:76px}
-  .two,.six{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+  .six{grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+  .six div{padding:18px 14px 16px;position:relative}
+  .six div::before{content:"✦";display:block;color:var(--gold);font-size:11px;margin-bottom:8px}
+  .six h3{font-size:16px;line-height:1.2;margin-bottom:6px}
+  .six p{font-size:12px;line-height:1.5}
   .tiers{grid-template-columns:1fr 1.12fr 1fr;gap:6px;margin-top:30px;align-items:center}
   .tier{padding:16px 6px 14px;outline-offset:3px}
   .tier .label{font-size:7px;letter-spacing:.18em;margin-bottom:8px;line-height:1.5;min-height:22px}
@@ -211,9 +219,10 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   .grid{grid-template-columns:repeat(2,1fr)}
   .grid.v{grid-template-columns:repeat(2,1fr)}
   .proj-head{flex-direction:column;align-items:flex-start;gap:6px}
-  .hookset{padding:20px 14px 18px}.hookset h4{font-size:22px}.hookset>p{font-size:13px;margin-bottom:16px}
+  .hookset{padding:18px 14px 16px;margin-bottom:18px}.hooks-intro h4{font-size:22px}.hooks-intro p{font-size:13px}.set-head{gap:10px;margin-bottom:12px}.set-head b{font-size:15px}
   .hooks{gap:8px}.hook b{font-size:14px;margin-top:8px}.hook small{font-size:10px}.hook .thumb i{font-size:8px;padding:3px 5px;right:6px;bottom:8px}
   .same{font-size:8px;letter-spacing:.2em;margin-top:16px}
+  .hook .thumb span{display:none}.hook .thumb .pl{width:36px;height:36px;margin:-18px 0 0 -18px}.hook .thumb .pl::after{left:14px;top:10px;border-left-width:10px;border-top-width:7px;border-bottom-width:7px}
   .cta h2{font-size:44px}
   .card{padding:30px 24px}
 }
@@ -286,14 +295,35 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     <div class="grid v" id="grid-clasic"></div>
 
     <div class="proj-head"><h3>Reclame video cu AI</h3><span>AI Studio</span></div>
-    <div class="hookset reveal">
-      <span class="label">Test A/B · Astravia</span>
+    <div class="hooks-intro reveal">
+      <span class="label">Test A/B</span>
       <h4>Aceeași reclamă. <em>Trei hook-uri diferite.</em></h4>
       <p>Schimbăm doar primele secunde, restul reclamei rămâne identic. Rulăm toate trei variantele în ads și păstrăm hook-ul care convertește cel mai bine.</p>
+    </div>
+    <div class="hookset reveal">
+      <div class="set-head"><span class="label">Set 1</span><b>Astravia · Medic de familie</b></div>
       <div class="hooks">
         <div class="hook"><div class="thumb" style="background-image:url('media/ai-gp-confession.jpg')" data-v="media/ai-gp-confession.mp4"><i>Hook 1</i><div class="pl"></div><span>Astravia</span></div><b>Mărturisirea</b></div>
         <div class="hook"><div class="thumb" style="background-image:url('media/ai-gp-hook1.jpg')" data-v="media/ai-gp-hook1.mp4"><i>Hook 2</i><div class="pl"></div><span>Astravia</span></div><b>Soluția</b></div>
         <div class="hook"><div class="thumb" style="background-image:url('media/ai-gp-hook3.jpg')" data-v="media/ai-gp-hook3.mp4"><i>Hook 3</i><div class="pl"></div><span>Astravia</span></div><b>Întrebarea pacientului</b></div>
+      </div>
+      <div class="same">după hook, același videoclip</div>
+    </div>
+    <div class="hookset reveal">
+      <div class="set-head"><span class="label">Set 2</span><b>Astravia · Joint Comfort, pixel art</b></div>
+      <div class="hooks">
+        <div class="hook"><div class="thumb" style="background-image:url('media/ai-set2-hook1.jpg')" data-v="media/ai-set2-hook1.mp4"><i>Hook 1</i><div class="pl"></div><span>Astravia</span></div><b>Durerea de noapte</b></div>
+        <div class="hook"><div class="thumb" style="background-image:url('media/ai-set2-hook2.jpg')" data-v="media/ai-set2-hook2.mp4"><i>Hook 2</i><div class="pl"></div><span>Astravia</span></div><b>Oboseala la gătit</b></div>
+        <div class="hook"><div class="thumb" style="background-image:url('media/ai-set2-hook3.jpg')" data-v="media/ai-set2-hook3.mp4"><i>Hook 3</i><div class="pl"></div><span>Astravia</span></div><b>Rigiditatea de dimineață</b></div>
+      </div>
+      <div class="same">după hook, același videoclip</div>
+    </div>
+    <div class="hookset reveal">
+      <div class="set-head"><span class="label">Set 3</span><b>Astravia · Interviu pe stradă</b></div>
+      <div class="hooks">
+        <div class="hook"><div class="thumb" style="background-image:url('media/ai-set3-hook1.jpg')" data-v="media/ai-set3-hook1.mp4"><i>Hook 1</i><div class="pl"></div><span>Astravia</span></div><b>Pe stadion</b></div>
+        <div class="hook"><div class="thumb" style="background-image:url('media/ai-set3-hook2.jpg')" data-v="media/ai-set3-hook2.mp4"><i>Hook 2</i><div class="pl"></div><span>Astravia</span></div><b>La poarta școlii</b></div>
+        <div class="hook"><div class="thumb" style="background-image:url('media/ai-set3-hook3.jpg')" data-v="media/ai-set3-hook3.mp4"><i>Hook 3</i><div class="pl"></div><span>Astravia</span></div><b>La cros</b></div>
       </div>
       <div class="same">după hook, același videoclip</div>
     </div>
