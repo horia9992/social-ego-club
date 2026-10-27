@@ -424,10 +424,17 @@ function render(id, items){
 }
 render('grid-clasic', CLASIC); render('grid-ai', AI);
 const lb = document.getElementById('lb'), lbv = document.getElementById('lbv');
-function openLb(src){ lbv.src = src; lb.classList.add('on'); lbv.play().catch(()=>{}); }
+function openLb(src){ lbv.src = src; lb.classList.add('on'); lbv.play().catch(()=>{}); track('clip/' + src.split('/').pop().replace('.mp4','')); }
 function closeLb(){ lb.classList.remove('on'); lbv.pause(); lbv.removeAttribute('src'); lbv.load(); }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
 </script>
+<script>
+function track(path){ try{ window.goatcounter && goatcounter.count({path: path, title: path, event: true}); }catch(e){} }
+document.querySelectorAll('a.wa').forEach(a => a.addEventListener('click', () => {
+  const c = document.getElementById('chosen'); track('whatsapp/' + (a.closest('.tiers, #preturi') && c ? c.textContent.trim().toLowerCase().replace(/\s+/g,'-') : 'contact'));
+}));
+</script>
+<script data-goatcounter="https://socialegoclub.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
