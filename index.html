@@ -67,10 +67,8 @@ nav,header,section,footer,.lb{position:relative;z-index:1}
 @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 .star{animation:glow 3s ease-in-out infinite}
 @keyframes glow{50%{text-shadow:0 0 18px rgba(201,164,104,.9);opacity:.75}}
-.card,.tier,.six div,.thumb{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.card,.six div,.thumb{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
 .card:hover,.six div:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 24px 50px rgba(0,0,0,.35)}
-.tier:hover{border-color:var(--gold);transform:translateY(-6px)}
-.tier.pop:hover{transform:scale(1.04) translateY(-6px)}
 .thumb:not(.empty):hover{transform:scale(1.03);border-color:var(--gold)}
 .video .play{transition:transform .3s,background .3s;animation:ring 2.6s ease-out infinite}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(201,164,104,.45)}100%{box-shadow:0 0 0 26px rgba(201,164,104,0)}}
@@ -160,27 +158,10 @@ nav .btn{padding:12px 24px}
 .thumb .pl{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border:1px solid var(--gold);border-radius:50%;background:rgba(46,8,8,.5);z-index:1}
 .thumb .pl::after{content:"";position:absolute;left:21px;top:16px;border-left:14px solid var(--cream);border-top:10px solid transparent;border-bottom:10px solid transparent}
 
-/* pricing */
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
-.tier{border:1px solid var(--line);background:var(--panel);padding:44px 34px;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.tier.pop{border-color:var(--gold);transform:scale(1.04);box-shadow:0 30px 60px rgba(0,0,0,.4)}
-.tier .label{display:block;margin-bottom:12px}
-.tier{position:relative;padding-top:54px}
-.tier::before{content:"";position:absolute;top:22px;left:50%;width:18px;height:18px;margin-left:-9px;border:1.5px solid var(--gold);border-radius:50%;transition:background .25s,box-shadow .25s}
-.tier.pop::before{background:var(--gold);box-shadow:inset 0 0 0 3px #2e0808,0 0 14px rgba(201,164,104,.7)}
-.tier .pick{display:inline-block;margin-top:22px;padding:10px 18px;border:1px solid var(--gold);font-size:10px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;color:var(--gold);transition:background .25s,color .25s}
-.tier .pick::before{content:"Alege pachetul"}
-.tier.pop .pick{background:var(--gold);color:#2e0808}
-.tier.pop .pick::before{content:"✓ Pachet ales"}
-.tier:not(.pop):hover .pick{background:rgba(201,164,104,.18)}
-.hint{text-align:center;color:var(--muted);font-size:14px;margin-top:-4px;letter-spacing:.04em}
-.hint b{color:var(--gold);font-weight:500}
-.tier .price{font-family:var(--serif);font-size:48px;color:var(--gold)}
-.tier .price small{font-family:var(--sans);font-size:12px;color:var(--muted);display:block;margin-top:2px}
-.tier ul{list-style:none;margin:26px 0;font-size:14px;line-height:2.2;color:var(--muted)}
-.tier .addon{margin-top:20px;border-top:1px dashed var(--line);padding-top:18px;font-size:13px}
-.tier .addon b{display:block;font-family:var(--serif);font-size:22px;color:var(--gold);font-weight:400;margin:6px 0 4px}
-.note{font-size:12px;color:var(--muted);text-align:center;margin-top:34px;letter-spacing:.04em;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.7}
+/* oferta personalizata */
+.offer{max-width:820px;margin:0 auto;text-align:center;border:1px solid var(--gold);background:var(--panel);padding:64px 48px}
+.offer p{color:var(--muted);font-size:16px;line-height:1.8;max-width:560px;margin:18px auto 0}
+.offer .contact{margin-top:38px}
 
 /* cta + footer */
 .cta h2{font-size:84px;letter-spacing:.06em;font-style:normal}
@@ -214,19 +195,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   .six div::before{content:"✦";display:block;color:var(--gold);font-size:11px;margin-bottom:8px}
   .six h3{font-size:16px;line-height:1.2;margin-bottom:6px}
   .six p{font-size:12px;line-height:1.5}
-  .tiers{grid-template-columns:1fr 1.12fr 1fr;gap:6px;margin-top:30px;align-items:center}
-  .tier{padding:16px 6px 14px;outline-offset:3px}
-  .tier .label{font-size:7px;letter-spacing:.18em;margin-bottom:8px;line-height:1.5;min-height:22px}
-  .tier .price{font-size:20px}
-  .tier .price small{font-size:8px}
-  .tier ul{margin:12px 0;font-size:8.5px;line-height:1.7}
-  .tier .addon{margin-top:10px;padding-top:10px;font-size:8px;line-height:1.4}
-  .tier .addon b{font-size:14px;margin:3px 0 2px}
-  .tier.pop{transform:scale(1.06);background:linear-gradient(180deg,rgba(201,164,104,.22),rgba(90,20,20,.7));border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 18px 40px rgba(0,0,0,.5);z-index:1}
-  .tier.pop .label::before{content:"✓ ";color:var(--gold)}
-  .note{font-size:10px;margin-top:22px}
-  .tier{padding-top:34px}.tier::before{top:12px;width:12px;height:12px;margin-left:-6px}.tier.pop::before{box-shadow:inset 0 0 0 2px #2e0808,0 0 10px rgba(201,164,104,.7)}.tier .pick{margin-top:12px;padding:7px 8px;font-size:6.5px;letter-spacing:.16em}.hint{font-size:11px;margin-top:0;padding:0 10px}
-  .tiers + .center{margin-top:26px!important}.tiers + .center .btn{padding:14px 18px;font-size:11px;letter-spacing:.2em}
+  .offer{padding:44px 20px}.offer p{font-size:14px}
   .grid{grid-template-columns:repeat(2,1fr)}
   .grid.v{grid-template-columns:repeat(2,1fr)}
   .proj-head{flex-direction:column;align-items:flex-start;gap:6px}
@@ -249,7 +218,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     <li><a href="#servicii">Servicii</a></li>
     <li><a href="#proiecte">Proiecte</a></li>
     <li><a href="#ai">AI Studio</a></li>
-    <li><a href="#preturi">Prețuri</a></li>
+    <li><a href="#oferta">Ofertă</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a class="btn wa" href="https://wa.me/40747756067" target="_blank" rel="noopener">Hai să vorbim</a>
@@ -395,22 +364,17 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
   </div>
 </section>
 
-<section class="reveal" id="preturi" style="padding-top:0">
+<section class="reveal" id="oferta" style="padding-top:0">
   <div class="wrap">
-    <div class="center"><div class="label">Membership</div><h2>Alege-ți nivelul.</h2><p class="hint">Alege pachetul dorit <b>printr-un click</b>.</p></div>
-    <div class="tiers">
-      <div class="tier frame" data-name="Essential Signature" data-price="€999 / lună" data-addon="+ €249, 5 reclame video AI / lună"><span class="label">Essential Signature</span><div class="price">€999<small>/ lună</small></div>
-        <ul><li>12 videoclipuri pe lună</li><li>Editare &amp; post completă</li><li>Optimizare pe platforme</li></ul>
-        <div class="addon">+ Add-on AI<b>+ €249</b>5 reclame video AI / lună</div><span class="pick"></span></div>
-      <div class="tier pop frame" data-name="Expansion Layer" data-price="€1.999 / lună" data-addon="+ €499, 12 reclame video AI + variante A/B"><span class="label">✦ Cel mai popular · Expansion Layer</span><div class="price">€1.999<small>/ lună</small></div>
-        <ul><li>30 videoclipuri pe lună</li><li>Account management complet</li><li>Analytics &amp; raportare lunară</li></ul>
-        <div class="addon">+ Add-on AI<b>+ €499</b>12 reclame video AI + variante A/B</div><span class="pick"></span></div>
-      <div class="tier frame" data-name="Elite Scale" data-price="€2.499 / lună" data-addon="+ €999, 30 reclame AI + 1 brand film AI"><span class="label">Elite Scale</span><div class="price">€2.499<small>/ lună</small></div>
-        <ul><li>30 clipuri + 4 brand films</li><li>Sesiuni de strategie săptămânale</li><li>Management premium</li></ul>
-        <div class="addon">+ Add-on AI<b>+ €999</b>30 reclame AI + 1 brand film AI</div><span class="pick"></span></div>
+    <div class="offer frame">
+      <div class="label">Membership</div>
+      <h2>Cere o ofertă personalizată.</h2>
+      <p>Fiecare brand are alt ritm, alte obiective și alt buget. Spune-ne unde vrei să ajungi și îți pregătim un pachet construit pe măsura ta.</p>
+      <div class="contact">
+        <a class="btn solid wa" href="https://wa.me/40747756067?text=Salut!%20A%C8%99%20dori%20o%20ofert%C4%83%20personalizat%C4%83%20pentru%20brandul%20meu." target="_blank" rel="noopener">Cere oferta pe WhatsApp</a>
+        <a class="btn mail" href="mailto:contact@socialegoclub.ro?subject=Cerere%20ofert%C4%83%20personalizat%C4%83">Cere oferta pe email</a>
+      </div>
     </div>
-    <div class="center" style="margin-top:40px"><a class="btn solid wa" href="https://wa.me/40747756067" target="_blank" rel="noopener">Hai să vorbim despre <span id="chosen">Expansion Layer</span></a></div>
-    <p class="note">Abonamentele la aplicațiile de AI (generare video, voce, imagine) se facturează separat, la cost, în funcție de volumul de generări. Estimare: €100–300 / lună.</p>
   </div>
 </section>
 
@@ -442,35 +406,6 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
     if (last && half) { x += (now - last) * (innerWidth < 980 ? 0.045 : 0.06); if (x >= half) x -= half; tr.style.transform = 'translateX(' + (-x).toFixed(2) + 'px)'; }
     last = now; requestAnimationFrame(step);
   })(0);
-})();
-
-/* ===== PACHETE: cel apăsat trece în mijloc și devine „ales” ===== */
-(() => {
-  const grid = document.querySelector('.tiers');
-  function setChosen(t){
-    const msg = `Salut! Sunt interesat de pachetul ${t.dataset.name} (${t.dataset.price}) cu add-on AI (${t.dataset.addon}). Putem vorbi?`;
-    const url = 'https://wa.me/40747756067?text=' + encodeURIComponent(msg);
-    document.querySelectorAll('a.wa').forEach(a => a.href = url);
-    const c = document.getElementById('chosen'); if (c) c.textContent = t.dataset.name;
-  }
-  setChosen(grid.querySelector('.tier.pop'));
-  grid.addEventListener('click', e => {
-    const t = e.target.closest('.tier'); if (!t) return;
-    const tiers = [...grid.children], mid = tiers[1];
-    if (t === mid) return;
-    const before = new Map(tiers.map(el => [el, el.getBoundingClientRect()]));
-    // schimbă locurile: cel apăsat vine în mijloc, cel din mijloc ia locul lui
-    const idx = tiers.indexOf(t);
-    if (idx === 0) { grid.insertBefore(mid, t); } else { grid.insertBefore(t, mid); }
-    tiers.forEach(el => el.classList.remove('pop')); t.classList.add('pop'); setChosen(t);
-    // animație FLIP: pornesc din vechea poziție și alunecă în cea nouă
-    for (const el of grid.children) {
-      const a = before.get(el), b = el.getBoundingClientRect();
-      const dx = a.left - b.left, dy = a.top - b.top;
-      el.style.transition = 'none'; el.style.transform = `translate(${dx}px,${dy}px)` + (el.classList.contains('pop') ? ' scale(.96)' : '');
-      requestAnimationFrame(() => requestAnimationFrame(() => { el.style.transition = 'transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s,background .35s'; el.style.transform = ''; }));
-    }
-  });
 })();
 
 /* ===== REVEAL LA SCROLL ===== */
@@ -510,9 +445,9 @@ document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', ()
 </script>
 <script>
 function track(path){ try{ window.goatcounter && goatcounter.count({path: path, title: path, event: true}); }catch(e){} }
-document.querySelectorAll('a.mail').forEach(a => a.addEventListener('click', () => track('email/contact')));
+document.querySelectorAll('a.mail').forEach(a => a.addEventListener('click', () => track('email/' + (a.closest('#oferta') ? 'oferta' : 'contact'))));
 document.querySelectorAll('a.wa').forEach(a => a.addEventListener('click', () => {
-  const c = document.getElementById('chosen'); track('whatsapp/' + (a.closest('.tiers, #preturi') && c ? c.textContent.trim().toLowerCase().replace(/\s+/g,'-') : 'contact'));
+  track('whatsapp/' + (a.closest('#oferta') ? 'oferta' : 'contact'));
 }));
 </script>
 <script data-goatcounter="https://socialegoclub.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
