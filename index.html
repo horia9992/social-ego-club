@@ -173,7 +173,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
 .lb{position:fixed;inset:0;background:rgba(20,4,4,.94);display:none;place-items:center;z-index:50;padding:24px}
 .lb.on{display:grid}
 .lb video{max-width:min(92vw,1100px);max-height:88vh;width:auto;height:88vh;border:1px solid var(--gold);outline:1px solid var(--line);outline-offset:10px;background:#000}
-.lb .x{position:absolute;top:22px;right:28px;color:var(--cream);font-size:28px;cursor:pointer;border:1px solid var(--line);width:44px;height:44px;display:grid;place-items:center}
+.lb .x{position:absolute;top:22px;right:28px;color:var(--cream);font-size:28px;cursor:pointer;z-index:2;border:1px solid var(--line);width:44px;height:44px;display:grid;place-items:center}
 
 @media (max-width:980px){
   .wrap{padding:0 20px}
@@ -393,7 +393,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);font-size:10px;letter-spa
 </section>
 <footer>Social EGO Club · Est 2026 · București<br>Marketing clasic &amp; reclame video cu AI<br><a href="mailto:contact@socialegoclub.ro" style="color:var(--gold);text-decoration:none;letter-spacing:.2em;text-transform:none">contact@socialegoclub.ro</a></footer>
 
-<div class="lb" id="lb" onclick="closeLb()"><div class="x">×</div><video id="lbv" controls playsinline></video></div>
+<div class="lb" id="lb"><div class="x" onclick="closeLb()" role="button" aria-label="Închide">×</div><video id="lbv" controls playsinline></video></div>
 
 <script>
 /* ===== LOGO-URI (carusel continuu, mișcat din JS, fără animație CSS) ===== */
